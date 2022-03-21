@@ -4,23 +4,25 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {AsideComponent} from './aside/aside.component';
 import {HttpClientModule} from '@angular/common/http'
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
-    declarations: [
-        HeaderComponent,
-        FooterComponent,
-        AsideComponent,
-    ],
-    imports: [
-        CommonModule,
-        HttpClientModule
-    ],
-    exports: [
-        HeaderComponent,
-        FooterComponent,
-        AsideComponent,
-    ],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    AsideComponent,
+  ],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+    RouterModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    AsideComponent,
+  ],
 })
 export class CoreModule {
 }
