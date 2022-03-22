@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {IUser} from "../shared/interfaces";
+import {LocalStorage} from "../core/injection-token";
 
 @Injectable()
 export class UserService {
@@ -9,7 +10,13 @@ export class UserService {
     return !!this.user
   }
 
-  constructor() {
+  constructor(@Inject(LocalStorage) private localStorage: Window['localStorage']) {
+    try{
+      const localStorageUser= this.localStorage.getItem('<USER>') || 'ERROR';
+      this.user = JSON.parse(localStorageUser);
+    }catch (e){
+      this.user = undefined;
+    }
   }
 
   login(email: string, password: string): void {
@@ -19,6 +26,7 @@ export class UserService {
       lastName: 'Doe'
     }
 
+    this.localStorage.setItem('<USER>', JSON.stringify(this.user));
   }
 
   logout(): void {

@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {UserService} from "../../user/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,25 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
   styleUrls: ['./header.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  get isLogged(): boolean {
+    return this.userService.isLogged;
+  }
 
-  constructor() { }
+  get firstName(): string {
+    return this.userService.user?.firstName || '';
+  }
 
-  ngOnInit(): void {
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) {
+
+  }
+
+  logout(): void {
+    this.userService.logout();
+    this.router.navigate(['/']);
   }
 
 }
