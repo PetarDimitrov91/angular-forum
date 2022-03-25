@@ -1,15 +1,18 @@
+<app-home *ngIf="!isLogged"></app-home>
 <div class="container">
   <main>
     <div class="theme-title">
       <div class="theme-container" *ngIf="themes">
-        <div *ngFor="let theme of themes" class="theme-name-wrapper">
+        <div *ngFor="let theme of themes" class="theme-name-wrapper" [routerLink]="['/themes',theme._id]">
           <div class="theme-name">
-            <a href="#" class="normal">
+            <a [routerLink]="['/themes',theme._id]" class="normal">
               <h2>{{theme.themeName}}</h2>
             </a>
             <div class="columns">
               <div>
-                <p>Date: <time>{{theme.created_at}}</time></p>
+                <p>Date:
+                  <time>{{theme.created_at}}</time>
+                </p>
                 <div class="nick-name">
                   <p>Username: <span>{{theme.userId.username}}</span></p>
                 </div>
@@ -26,15 +29,15 @@
       </div>
 
     </div>
-   </main>
-   <ng-template #recentPostTemplate let-item>
-       <a href="#">
-           <h3>{{item.themeId.themeName}}</h3>
-           <p>{{item.userId.username}}</p>
-           <p><span>{{item.created_at}}</span></p>
-       </a>
-   </ng-template>
-   <app-aside title="Recent posts" [items]="recentPosts" [itemTemplateRef]="recentPostTemplate" ></app-aside>
+  </main>
+  <ng-template #recentPostTemplate let-item>
+    <a href="#">
+      <h3>{{item.themeId.themeName}}</h3>
+      <p>{{item.userId.username}}</p>
+      <p><span>{{item.created_at}}</span></p>
+    </a>
+  </ng-template>
+  <app-aside title="Recent posts" [items]="recentPosts" [itemTemplateRef]="recentPostTemplate"></app-aside>
 </div>
 
 

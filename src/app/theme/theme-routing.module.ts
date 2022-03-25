@@ -4,6 +4,7 @@ import {ThemeComponent} from "./theme/theme.component";
 import {NewThemeComponent} from "./new-theme/new-theme.component";
 import {ThemesComponent} from "./themes/themes.component";
 import {AuthActivate} from "../core/guards/auth.activate";
+import {LoginComponent} from "../user/login/login.component";
 
 
 const routes: Routes =
@@ -19,7 +20,7 @@ const routes: Routes =
           },
           {
             path: ':themeId',
-            component: ThemeComponent
+            component: ThemeComponent,
           }
         ]
     },
@@ -31,7 +32,7 @@ const routes: Routes =
         authenticationRequired:true,
         authenticationFailureRedirectUrl: '/login'
       }
-    },
+    }
   ];
 
 
