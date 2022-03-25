@@ -21,12 +21,10 @@ export class HeaderComponent {
     private userService: UserService,
     private router: Router
   ) {
-
   }
 
   logout(): void {
     this.userService.logout();
     this.router.navigate(['/']);
   }
-
 }

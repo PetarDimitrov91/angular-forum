@@ -6,6 +6,7 @@ import {AsideComponent} from './aside/aside.component';
 import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from "@angular/router";
 import {LocalStorage} from "./injection-token";
+import {AuthActivate} from "./guards/auth.activate";
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import {LocalStorage} from "./injection-token";
       },
       deps: [PLATFORM_ID]
       // useValue: window.localStorage
-    }
+    },
+    AuthActivate
   ]
 })
 

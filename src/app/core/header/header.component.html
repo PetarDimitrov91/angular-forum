@@ -13,7 +13,7 @@
         </li>
       </ul>
       <ul *ngIf="isLogged">
-        <li>{{firstName}}'s Profile</li>
+        <li routerLink="/profile">{{firstName}}'s Profile</li>
         <li (click)="logout()">Logout</li>
       </ul>
     </div>
@@ -31,5 +31,4 @@
       </li>
     </ul>
   </nav>
-
 </header>
