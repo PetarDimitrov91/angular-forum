@@ -4,16 +4,18 @@ import {NewThemeComponent} from './new-theme/new-theme.component';
 import {ThemesComponent} from './themes/themes.component';
 import {ThemeComponent} from "./theme/theme.component";
 import {ThemeRoutingModule} from "./theme-routing.module";
+import {AsideComponent} from "./aside/aside.component";
 
 @NgModule({
   declarations: [
     NewThemeComponent,
     ThemesComponent,
-    ThemeComponent
+    ThemeComponent,
+    AsideComponent
   ],
   imports: [
     CommonModule,
-    ThemeRoutingModule
+    ThemeRoutingModule,
   ]
 })
 export class ThemeModule {
